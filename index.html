@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07351f">
+<meta name="description" content="Атанбек жана Рысбубунун үйлөнүү тоюна чакыруу">
+<title>Атанбек & Рысбубу | Үйлөнүү тою</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #07351f;
+  --green2: #0c482d;
+  --gold: #c9a45d;
+  --cream: #f8f5ed;
+  --white: #fffaf1;
+  --line: rgba(201,164,93,.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--green);
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.rule {
+  width: 76px;
+  height: 1px;
+  margin: 26px auto;
+  background: var(--gold);
+}
+
+/* =====================================
+   1. КОНВЕРТ — ОРИГИНАЛ СҮРӨТ
+===================================== */
+
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #ead9c7;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity .9s ease,
+    visibility .9s ease;
+}
+
+.envelope-screen.is-opening {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-inner {
+  width: min(100%, 460px);
+  text-align: center;
+}
+
+.envelope-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline-offset: 8px;
+  background: transparent;
+  cursor: pointer;
+  transform-origin: center;
+  animation: envelopeAppear 1.1s ease both;
+}
+
+.envelope-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  filter: drop-shadow(0 18px 28px rgba(36,24,13,.16));
+  transition:
+    transform .8s ease,
+    opacity .65s ease;
+}
+
+.envelope-button.opening img {
+  transform: scale(1.07);
+  opacity: 0;
+}
+
+.open-caption {
+  margin: 22px 0 0;
+  color: #214632;
+  font-size: 10px;
+  letter-spacing: 3px;
+  line-height: 2;
+}
+
+.open-caption span {
+  display: block;
+  margin-bottom: 8px;
+  color: #98763e;
+  font-size: 19px;
+}
+
+@keyframes envelopeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   2. СҮРӨТТӨР
+   Оригинал пропорция сакталат.
+   Фильтр, кесүү, үстүнө текст жок.
+===================================== */
+
+.original-picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.picture-section {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--green);
+  line-height: 0;
+}
+
+/* =====================================
+   3. ЧАКЫРУУ БӨЛҮМҮ
+===================================== */
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 78px 22px;
+  text-align: center;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 570px);
+  margin: 0 auto;
+}
+
+.cream-section {
+  color: var(--green);
+  background: var(--cream);
+}
+
+.green-section {
+  color: var(--white);
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(201,164,93,.09),
+      transparent 58%
+    ),
+    var(--green);
+}
+
+.hero-names {
+  margin: 22px 0;
+  font-size: clamp(58px, 13vw, 92px);
+  font-weight: 500;
+  line-height: .83;
+}
+
+.hero-names .ampersand {
+  display: block;
+  margin: 15px 0;
+  color: var(--gold);
+  font-size: .57em;
+  font-style: italic;
+  line-height: 1;
+}
+
+.lead {
+  max-width: 400px;
+  margin: 25px auto;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 2.2;
+}
+
+.date-label {
+  margin-top: 32px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.section-title {
+  margin: 0 0 22px;
+  font-size: clamp(40px, 10vw, 59px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.small-copy {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 2.1;
+}
+
+/* =====================================
+   4. КАЛЕНДАРЬ
+===================================== */
+
+.calendar {
+  width: min(100%, 340px);
+  margin: 32px auto;
+  padding: 27px 15px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.calendar-month {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.calendar-day {
+  margin: 8px 0 0;
+  font-size: clamp(88px, 22vw, 116px);
+  line-height: .95;
+}
+
+.calendar-year {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.event-time {
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 48px;
+}
+
+/* =====================================
+   5. ТАЙМЕР
+===================================== */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: min(100%, 430px);
+  margin: 34px auto 0;
+}
+
+.count-number {
+  color: var(--gold);
+  font-size: clamp(30px, 7vw, 47px);
+  line-height: 1.1;
+}
+
+.count-label {
+  margin-top: 9px;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* =====================================
+   6. РЕСТОРАН
+===================================== */
+
+.venue-card {
+  margin: 30px auto 0;
+  padding: 30px 16px;
+  border: 1px solid var(--line);
+}
+
+.venue-name {
+  margin: 10px 0;
+  font-size: 45px;
+  font-weight: 500;
+}
+
+.venue-city {
+  font-size: 11px;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+/* =====================================
+   7. БАСKЫЧТАР
+===================================== */
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin: 8px 4px 0;
+  padding: 13px 18px;
+  border: 1px solid var(--gold);
+  color: inherit;
+  background: transparent;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color .25s ease,
+    background .25s ease;
+}
+
+.action-button:hover {
+  color: var(--green);
+  background: var(--gold);
+}
+
+.action-button:focus-visible,
+.envelope-button:focus-visible,
+.music-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* =====================================
+   8. МУЗЫКА
+===================================== */
+
+.music-button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--green);
+  box-shadow: 0 5px 20px rgba(0,0,0,.15);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.music-button.visible {
+  display: flex;
+}
+
+.music-button.playing {
+  animation: musicSpin 5s linear infinite;
+}
+
+@keyframes musicSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* =====================================
+   9. ЖУМШАК АНИМАЦИЯ
+===================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 760px) {
+  .section {
+    padding: 100px 30px;
+  }
+
+  .hero-names {
+    font-size: 94px;
+  }
+}
+
+@media (max-width: 360px) {
+  .section {
+    padding: 60px 17px;
+  }
+
+  .eyebrow {
+    letter-spacing: 2.5px;
+  }
+
+  .action-button {
+    padding: 12px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<!-- МУЗЫКА: music.mp3 ФАЙЛЫН КОШУУ КЕРЕК -->
+<audio id="weddingMusic" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 1. ОРИГИНАЛ КОНВЕРТ -->
+<div class="envelope-screen" id="envelopeScreen">
+  <div class="envelope-inner">
+
+    <button
+      class="envelope-button"
+      id="openEnvelope"
+      aria-label="Той чакыруусун ачуу"
+    >
+      <img
+        src="1000035422.jpg"
+        alt="Кочкул жашыл конверт"
+      >
+    </button>
+
+    <p class="open-caption">
+      <span>✧</span>
+      ЧАКЫРУУНУ АЧУУ ҮЧҮН БАСЫҢЫЗ
+    </p>
+
+  </div>
+</div>
+
+<main>
+
+  <!-- 2. ЭКИНЧИ СҮРӨТ: АК ГҮЛДҮҮ ОРИГИНАЛ ФОН -->
+  <section class="picture-section">
+    <img
+      class="original-picture"
+      src="1000035416.jpg"
+      alt="Ак гүлдөр жана алтын жасалгалар"
+      fetchpriority="high"
+    >
+  </section>
+
+  <!-- ЧАКЫРУУНУН БАШКЫ ТЕКСТИ -->
+  <section class="section cream-section">
+    <div class="inner reveal">
+
+      <p class="eyebrow">Үйлөнүү тоюна чакыруу</p>
+
+      <h1 class="hero-names serif">
+        Атанбек
+        <span class="ampersand">&</span>
+        Рысбубу
+      </h1>
+
+      <div class="rule"></div>
+
+      <p class="lead">
+        Урматтуу коноктор!<br>
+        Сиздерди биздин үйлөнүү тоюбузга чакырабыз!
+      </p>
+
+      <p class="date-label">17 · ОКТЯБРЬ · 2026</p>
+
+    </div>
+  </section>
+
+  <!-- 3. ҮЧҮНЧҮ СҮРӨТ: ЖАШЫЛ-АЛТЫН ОРИГИНАЛ ФОН -->
+  <section class="picture-section">
+    <img
+      class="original-picture"
+      src="1000035412.jpg"
+      alt="Кочкул жашыл жана алтын түстөгү оригинал фон"
+      loading="lazy"
+    >
+  </section>
+
+  <!-- ТОЙ МААЛЫМАТТАРЫ -->
+  <section class="section green-section">
+    <div class="inner reveal">
+
+      <p class="eyebrow">Биздин кубанычтуу күн</p>
+
+      <h2 class="section-title serif">Той күнү</h2>
+
+      <div class="calendar">
+        <div class="calendar-month">ОКТЯБРЬ</div>
+        <div class="calendar-day serif">17</div>
+        <div class="calendar-year">2026-жыл</div>
+      </div>
+
+      <p class="small-copy">Тойдун башталышы</p>
+      <div class="event-time serif">16:00</div>
+
+      <div class="rule"></div>
+
+      <p class="eyebrow">Той ээлери</p>
+
+      <h2 class="section-title serif" style="font-size:40px">
+        Атанбек & Рысбубу
+      </h2>
+
+    </div>
+  </section>
+
+  <!-- ТОЙГО ЧЕЙИНКИ ТАЙМЕР -->
+  <section class="section cream-section">
+    <div class="inner reveal">
+
+      <p class="eyebrow">Күтүлгөн көз ирмем</p>
+
+      <h2 class="section-title serif">Тойго чейин</h2>
+
+      <p class="small-copy">
+        Биздин өзгөчө күнгө калган убакыт
+      </p>
+
+      <div class="countdown" aria-label="Тойго чейинки убакыт">
+
+        <div>
+          <div class="count-number serif" id="days">00</div>
+          <div class="count-label">КҮН</div>
+        </div>
+
+        <div>
+          <div class="count-number serif" id="hours">00</div>
+          <div class="count-label">СААТ</div>
+        </div>
+
+        <div>
+          <div class="count-number serif" id="minutes">00</div>
+          <div class="count-label">МИНУТ</div>
+        </div>
+
+        <div>
+          <div class="count-number serif" id="seconds">00</div>
+          <div class="count-label">СЕКУНД</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- РЕСТОРАН ЖАНА КАРТА -->
+  <section class="section green-section">
+    <div class="inner reveal">
+
+      <p class="eyebrow">Сиздерди күтөбүз</p>
+
+      <h2 class="section-title serif">Той өтүүчү жай</h2>
+
+      <div class="venue-card">
+
+        <p class="eyebrow">Ресторан</p>
+
+        <h3 class="venue-name serif">«УЛАР»</h3>
+
+        <p class="venue-city">
+          КАРА-БАЛТА ШААРЫ
+        </p>
+
+        <a
+          class="action-button"
+          href="https://www.google.com/maps/search/?api=1&query=Ресторан+Улар+Кара-Балта"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          КАРТАДАН КӨРҮҮ
+        </a>
+
+        <a
+          class="action-button"
+          href="https://yandex.com/maps/?text=Ресторан%20Улар%20Кара-Балта"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          МАРШРУТ ТҮЗҮҮ
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- АКЫРКЫ СӨЗ ЖАНА WHATSAPP -->
+  <section class="section cream-section">
+    <div class="inner reveal">
+
+      <p class="eyebrow">Сүйүү менен</p>
+
+      <h2 class="hero-names serif" style="font-size:clamp(43px,10vw,65px)">
+        Атанбек
+        <span class="ampersand">&</span>
+        Рысбубу
+      </h2>
+
+      <div class="rule"></div>
+
+      <p class="lead">
+        Бирге баскан ар бир кадам — бакыт.<br>
+        Бир жүрөк, бир өмүр, бир түбөлүк.<br>
+        Сүйүүбүз — жарык жолубуз.
+      </p>
+
+      <p class="lead">
+        Келип, кубанычыбызга күбө болуңуздар!
+      </p>
+
+      <a
+        class="action-button"
+        href="https://wa.me/996706853572?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC%D0%B0%D1%82%D1%81%D1%8B%D0%B7%D0%B1%D1%8B!%20%D0%A2%D0%BE%D0%B9%D0%B3%D0%BE%20%D1%87%D0%B0%D0%BA%D1%8B%D1%80%D1%83%D1%83%D2%A3%D0%B0%D1%80%D0%B3%D0%B0%20%D1%80%D0%B0%D1%85%D0%BC%D0%B0%D1%82."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WHATSAPP АРКЫЛУУ ЖАЗУУ
+      </a>
+
+      <p class="date-label">17 · 10 · 2026 · 16:00</p>
+
+      <button class="action-button" id="calendarButton">
+        КАЛЕНДАРГА КОШУУ
+      </button>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- МУЗЫКАНЫ БАШКАРУУ -->
+<button
+  class="music-button"
+  id="musicButton"
+  aria-label="Музыканы токтотуу же улантуу"
+  title="Музыка"
+>
+  ♫
+</button>
+
+<script>
+const envelopeScreen = document.getElementById("envelopeScreen");
+const envelopeButton = document.getElementById("openEnvelope");
+const music = document.getElementById("weddingMusic");
+const musicButton = document.getElementById("musicButton");
+
+let envelopeOpened = false;
+
+/* КОНВЕРТТИ АЧУУ */
+envelopeButton.addEventListener("click", async () => {
+  if (envelopeOpened) return;
+  envelopeOpened = true;
+
+  envelopeButton.classList.add("opening");
+  musicButton.classList.add("visible");
+
+  // Музыканы колдонуучунун аракетинен кийин баштайбыз.
+  try {
+    await music.play();
+  } catch (error) {
+    console.info("Музыка ойнотулган жок. music.mp3 файлын текшериңиз.");
+  }
+
+  // Конверттин акырын жоголуу эффекти.
+  setTimeout(() => {
+    envelopeScreen.classList.add("is-opening");
+    document.body.classList.remove("locked");
+  }, 500);
+});
+
+/* МУЗЫКАНЫ ТОКТОТУУ / УЛАНТУУ */
+musicButton.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+    } catch (error) {
+      console.info("Музыка файлын текшериңиз.");
+    }
+  } else {
+    music.pause();
+  }
+});
+
+music.addEventListener("play", () => {
+  musicButton.classList.add("playing");
+});
+
+music.addEventListener("pause", () => {
+  musicButton.classList.remove("playing");
+});
+
+/* БӨЛҮМДӨРДҮН АНИМАЦИЯСЫ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach((element) => {
+  revealObserver.observe(element);
+});
+
+/* ТОЙ ТАЙМЕРИ: КЫРГЫЗСТАН UTC+6 */
+const weddingDate = new Date("2026-10-17T16:00:00+06:00");
+
+function updateCountdown() {
+  const remaining = weddingDate.getTime() - Date.now();
+
+  const elements = ["days", "hours", "minutes", "seconds"];
+
+  if (remaining <= 0) {
+    elements.forEach((id) => {
+      document.getElementById(id).textContent = "00";
+    });
+    return;
+  }
+
+  const values = [
+    Math.floor(remaining / 86400000),
+    Math.floor((remaining % 86400000) / 3600000),
+    Math.floor((remaining % 3600000) / 60000),
+    Math.floor((remaining % 60000) / 1000)
+  ];
+
+  elements.forEach((id, index) => {
+    document.getElementById(id).textContent =
+      String(values[index]).padStart(2, "0");
+  });
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* GOOGLE CALENDAR */
+document.getElementById("calendarButton").addEventListener("click", () => {
+  const url = new URL("https://calendar.google.com/calendar/render");
+
+  url.searchParams.set("action", "TEMPLATE");
+  url.searchParams.set(
+    "text",
+    "Атанбек & Рысбубу — Үйлөнүү тою"
+  );
+  url.searchParams.set(
+    "dates",
+    "20261017T100000Z/20261017T120000Z"
+  );
+  url.searchParams.set(
+    "details",
+    "Урматтуу коноктор! Сиздерди биздин үйлөнүү тоюбузга чакырабыз!"
+  );
+  url.searchParams.set(
+    "location",
+    "Ресторан Улар, Кара-Балта, Кыргызстан"
+  );
+
+  window.open(url.toString(), "_blank", "noopener,noreferrer");
+});
+</script>
+
+</body>
+</html>
